@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ContactTableViewController: UITableViewController {
+class FirstContactTableViewController: UITableViewController {
     
     private var personList = Person.getPersonList()
 
@@ -16,13 +16,13 @@ class ContactTableViewController: UITableViewController {
     }
 }
 
-extension ContactTableViewController {
+extension FirstContactTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         personList.count
     }
 }
 
-extension ContactTableViewController {
+extension FirstContactTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "personCell",
@@ -37,7 +37,7 @@ extension ContactTableViewController {
     }
 }
 
-extension ContactTableViewController {
+extension FirstContactTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vc = segue.destination as? DetailContactViewController,
               let indexPath = tableView.indexPathForSelectedRow

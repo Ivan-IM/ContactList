@@ -17,6 +17,7 @@ class DetailContactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = person.fullName
         imageView.image = UIImage(named: person.lastName)
         phoneLable.text = "Phone: \(String(person.phone))"
         emailLabel.text = "Email: \(person.email)"

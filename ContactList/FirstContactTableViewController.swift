@@ -28,9 +28,9 @@ extension FirstContactTableViewController {
             withIdentifier: "personCell",
             for: indexPath
         )
+        
         let person = personList[indexPath.row]
         var content = cell.defaultContentConfiguration()
-        
         content.text = person.fullName
         cell.contentConfiguration = content
         return cell

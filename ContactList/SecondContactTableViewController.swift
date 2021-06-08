@@ -13,12 +13,14 @@ class SecondContactTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 }
 
 extension SecondContactTableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
+        
         label.text = personList[section].fullName
         label.backgroundColor = UIColor.gray
         return label
@@ -30,12 +32,21 @@ extension SecondContactTableViewController {
         return 2
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row < 1 {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "pCell",
+            withIdentifier: "Cell",
             for: indexPath
         )
-        cell.textLabel?.text = String(personList[indexPath.section].phone)
-
-        return cell
+            cell.textLabel?.text = String(personList[indexPath.section].phone)
+            return cell
+        }
+        else {
+        let postCell = tableView.dequeueReusableCell(
+            withIdentifier: "postCell",
+            for: indexPath
+        )
+        postCell.textLabel?.text = personList[indexPath.section].email
+        return postCell
+        }
     }
 }

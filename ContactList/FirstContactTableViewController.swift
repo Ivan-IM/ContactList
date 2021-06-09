@@ -17,12 +17,13 @@ class FirstContactTableViewController: UITableViewController {
 }
 
 extension FirstContactTableViewController {
+    
+    /// Mark: назначение числа ячеек
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         personList.count
     }
-}
 
-extension FirstContactTableViewController {
+    /// Mark: назначение содержимого ячеек
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "personCell",
@@ -38,6 +39,8 @@ extension FirstContactTableViewController {
 }
 
 extension FirstContactTableViewController {
+    
+    /// Mark: делегирование во вью деталей контакта
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vc = segue.destination as? DetailContactViewController,
               let indexPath = tableView.indexPathForSelectedRow

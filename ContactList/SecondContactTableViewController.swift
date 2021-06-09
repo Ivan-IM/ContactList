@@ -18,6 +18,8 @@ class SecondContactTableViewController: UITableViewController {
 }
 
 extension SecondContactTableViewController {
+    
+    /// Mark: назначение имени секции
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
         
@@ -25,12 +27,15 @@ extension SecondContactTableViewController {
         label.backgroundColor = UIColor.gray
         return label
     }
+    /// Mark: установка числа секций
     override func numberOfSections(in tableView: UITableView) -> Int {
         return personList.count
     }
+    /// Mark: установка числа ячеек
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
+    /// Mark: назначение содержимого ячеек
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row < 1 {
         let cell = tableView.dequeueReusableCell(
